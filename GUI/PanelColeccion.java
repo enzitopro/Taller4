@@ -41,6 +41,8 @@ public class PanelColeccion extends JPanel {
 		lblImagen.setPreferredSize(new Dimension(200,280));
 		lblImagen.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		
+		lblDetalles = new JLabel("<html>Detalles de la carta...</html>");
+		lblDetalles.setVerticalAlignment(SwingConstants.TOP);
 		panelVista.add(lblImagen, BorderLayout.NORTH);
 		panelVista.add(lblDetalles, BorderLayout.CENTER);
 		
@@ -104,13 +106,13 @@ public class PanelColeccion extends JPanel {
 	}
 	
 	private void cargarImagen(String nombre) {
-		String ruta = "src/img/" + nombre + ".png";
+		String ruta = "img/" + nombre + ".png";
 		File file = new File(ruta);
 		if (file.exists()) {
 			ImageIcon icon = new ImageIcon(ruta);
 			lblImagen.setIcon(new ImageIcon(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
 		} else {
-			ImageIcon iconDefecto = new ImageIcon("src/img/default.png");
+			ImageIcon iconDefecto = new ImageIcon("img/default.png");
 			lblImagen.setIcon(new ImageIcon(iconDefecto.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
 		}
 		lblImagen.setText("");

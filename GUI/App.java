@@ -15,7 +15,7 @@ public class App extends JFrame {
 		JTabbedPane pestanas = new JTabbedPane();
 		
 		pestanas.addTab("Administracion", new PanelAdministracion());
-		//pestanas.addTab("Ver Coleccion", new PanelColeccion());
+		pestanas.addTab("Ver Coleccion", new PanelColeccion());
 		
 		add(pestanas);
 	}
