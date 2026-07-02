@@ -34,5 +34,21 @@ public class PanelColeccion extends JPanel {
 		modeloLista = new DefaultListModel<>();
 		listaCartas = new JList<>(modeloLista);
 		JScrollPane scrollLista = new JScrollPane(listaCartas);
+		
+		JPanel panelVista = new JPanel(new BorderLayout(5,5));
+		panelVista.setPreferredSize(new Dimension(300,0));
+		lblImagen = new JLabel("Seleccione una carta", SwingConstants.CENTER);
+		lblImagen.setPreferredSize(new Dimension(200,280));
+		lblImagen.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		
+		panelVista.add(lblImagen, BorderLayout.NORTH);
+		panelVista.add(lblDetalles, BorderLayout.CENTER);
+		
+		add(panelSort, BorderLayout.NORTH);
+		add(scrollLista, BorderLayout.CENTER);
+		add(panelVista, BorderLayout.EAST);
+		
+		configurarEventos(btnOrdenar, btnActualizar);
+		actualizarListaUI();
 	}
 }
