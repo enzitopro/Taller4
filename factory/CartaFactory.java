@@ -1,5 +1,7 @@
 package factory;
 
+import dominio.*;
+
 public class CartaFactory {
     public static Carta crearCarta(String linea) {
         String[] datos = linea.split(";");
