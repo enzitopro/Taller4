@@ -1,5 +1,6 @@
 package sistema;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.*;
+import logica.CartaFactory;
 
 public class SistemaImpl {
 	private static SistemaImpl instancia;
@@ -24,8 +26,20 @@ public class SistemaImpl {
     	}
     	return instancia;
     }
-    
     private void cargarDatos() {
+    	try (BufferedReader br = new BufferedReader(new FileReader(RUTA_ARCHIVO))) {
+    		String linea;
+    		while ((linea = br.readLine()) != null) {
+    			Carta nuevaCarta = CartaFactory.crearCarta(linea);
+    			if (nuevaCarta != null) {
+    				coleccion.add(nuevaCarta);
+    			}
+    		}
+    	} catch (IOException e) {
+    		System.out.println("No se encontró el archivo de datos");
+    	}
+    }
+    private void modificarDatos() {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA_ARCHIVO))) {
 			for (Carta c : coleccion) {
 				StringBuilder linea = new StringBuilder();
