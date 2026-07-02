@@ -69,5 +69,50 @@ public class PanelColeccion extends JPanel {
 			}
 		});
 		
+		listaCartas.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting() && listaCartas.getSelectedValue() != null) {
+				String nombreSeleccionado = listaCartas.getSelectedValue();
+				Carta cartaSeleccionada = null;
+				
+				for (Carta c : SistemaImpl.getInstancia().obtenerColeccion()) {
+					if (c.getNombreCarta().equals(nombreSeleccionado)) {
+						cartaSeleccionada = c;
+						break;
+					}
+				}
+				
+				if (cartaSeleccionada != null) {
+					CalculadorPoder visitor = new CalculadorPoder();
+					double poder = cartaSeleccionada.aceptar(visitor);
+					
+					String detalles = "<html><h3>" + cartaSeleccionada.getNombreCarta()
+							+ "<b>Tipo:</b> " + cartaSeleccionada.getTipo() + "<br>"
+							+ "<b>Rareza:</b> " + cartaSeleccionada.getRareza() + "<br>"
+							+ "<b>Poder de Combate:</b> " + poder + "</html>";
+					lblDetalles.setText(detalles);
+					cargarImagen(cartaSeleccionada.getNombreCarta());
+				}
+			}
+		});
+	}
+	
+	private void actualizarListaUI() {
+		modeloLista.clear();
+		for (Carta c : SistemaImpl.getInstancia().obtenerColeccion()) {
+			modeloLista.addElement(c.getNombreCarta());
+		}
+	}
+	
+	private void cargarImagen(String nombre) {
+		String ruta = "src/img/" + nombre + ".png";
+		File file = new File(ruta);
+		if (file.exists()) {
+			ImageIcon icon = new ImageIcon(ruta);
+			lblImagen.setIcon(new ImageIcon(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+		} else {
+			ImageIcon iconDefecto = new ImageIcon("src/img/default.png");
+			lblImagen.setIcon(new ImageIcon(iconDefecto.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+		}
+		lblImagen.setText("");
 	}
 }
