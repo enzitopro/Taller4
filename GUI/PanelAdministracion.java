@@ -7,6 +7,7 @@ import sistema.SistemaImpl;
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class PanelAdministracion extends JPanel {
 	private JTextField txtNombre, txtRareza, txtAtr1, txtAtr2;
 	private JComboBox<String> comboTipo;

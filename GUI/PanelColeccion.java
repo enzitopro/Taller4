@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
+@SuppressWarnings("serial")
 public class PanelColeccion extends JPanel {
 	private JList<String> listaCartas;
 	private DefaultListModel<String> modeloLista;
@@ -88,9 +89,9 @@ public class PanelColeccion extends JPanel {
 					double poder = cartaSeleccionada.aceptar(visitor);
 					
 					String detalles = "<html><h3>" + cartaSeleccionada.getNombreCarta()
-							+ "<b>Tipo:</b> " + cartaSeleccionada.getTipo() + "<br>"
+							+ "<b> Tipo:</b> " + cartaSeleccionada.getTipo() + "<br>"
 							+ "<b>Rareza:</b> " + cartaSeleccionada.getRareza() + "<br>"
-							+ "<b>Poder de Combate:</b> " + poder + "</html>";
+							+ "<b>Poder de Combate:</b> " + String.format("%.2f", poder) + "</html>";
 					lblDetalles.setText(detalles);
 					cargarImagen(cartaSeleccionada.getNombreCarta());
 				}
