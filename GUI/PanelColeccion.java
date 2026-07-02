@@ -51,4 +51,23 @@ public class PanelColeccion extends JPanel {
 		configurarEventos(btnOrdenar, btnActualizar);
 		actualizarListaUI();
 	}
+
+	private void configurarEventos(JButton btnOrdenar, JButton btnActualizar) {
+		btnActualizar.addActionListener(e -> actualizarListaUI());
+		
+		btnOrdenar.addActionListener(e -> {
+			String seleccion = (String) comboSort.getSelectedItem();
+			EstrategiaOrdenamiento estrategia = null;
+			
+			if (seleccion.equals("Por Rareza")) estrategia = new SortRareza();
+			else if (seleccion.equals("Por Nombre")) estrategia = new SortNombre();
+			else if (seleccion.equals("Por Poder")) estrategia = new SortPoder();
+			
+			if (estrategia != null) {
+				SistemaImpl.getInstancia().ordenarColeccion(estrategia);
+				actualizarListaUI();
+			}
+		});
+		
+	}
 }
