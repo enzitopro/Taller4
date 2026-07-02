@@ -1,7 +1,8 @@
 package sistema;
 
 import dominio.Carta;
-import factory.CartaFactory;
+import logica.CartaFactory;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +41,8 @@ public class SistemaCartas {
 		}
 	}
 
-	// Llama a este método cada vez que agregues, borres o modifiques desde la GUI
 	public void guardarCartasEnArchivo() {
-		// Tu misión: Usar un BufferedWriter para recorrer la lista 'coleccion'
-		// y escribirla de vuelta en Sobres.txt respetando los punto y coma.
+
+		
 	}
 }

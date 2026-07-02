@@ -1,4 +1,4 @@
-package strategy;
+package logica;
 
 import java.util.List;
 

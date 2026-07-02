@@ -1,6 +1,6 @@
 package dominio;
 
-import visitor.VisitorPoder;
+import logica.VisitorPoder;
 
 public abstract class Carta {
 	protected String nombreCarta;
@@ -15,7 +15,6 @@ public abstract class Carta {
 
 	public abstract double aceptar(VisitorPoder v);
 
-	// Getters para el Strategy y la GUI
 	public String getNombreCarta() {
 		return nombreCarta;
 	}

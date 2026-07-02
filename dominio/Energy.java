@@ -1,6 +1,6 @@
 package dominio;
 
-import visitor.VisitorPoder;
+import logica.VisitorPoder;
 
 public class Energy extends Carta {
 	private String elemento;

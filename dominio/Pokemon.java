@@ -1,6 +1,6 @@
 package dominio;
 
-import visitor.VisitorPoder;
+import logica.VisitorPoder;
 
 public class Pokemon extends Carta {
 	private int dano;

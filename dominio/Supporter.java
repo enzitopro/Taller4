@@ -1,6 +1,6 @@
 package dominio;
 
-import visitor.VisitorPoder;
+import logica.VisitorPoder;
 
 public class Supporter extends Carta {
 	private int efectosPorTurno;

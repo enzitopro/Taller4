@@ -1,9 +1,8 @@
-package strategy;
+package logica;
 
 import java.util.List;
 
 import dominio.Carta;
-import visitor.CalculadorPoder;
 
 public class SortPoder implements EstrategiaOrdenamiento {
 
