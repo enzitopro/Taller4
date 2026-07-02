@@ -1,11 +1,8 @@
-package sistema;
+package GUI;
+//Integrante 1: Elliot Bravo de Rodt - enzitopro
+//Integrante 2: Enzo Salvatore Cornieles Medina - justamago
+//Link repositorio: https://github.com/enzitopro/Taller3
 
-// Integrante 1: Elliot Bravo de Rodt - enzitopro
-// Integrante 2: Enzo Salvatore Cornieles Medina - justamago
-// Link repositorio: https://github.com/enzitopro/Taller3
-
-
-import GUI.*;
 import javax.swing.*;
 
 public class App extends JFrame {
@@ -18,7 +15,7 @@ public class App extends JFrame {
 		JTabbedPane pestanas = new JTabbedPane();
 		
 		pestanas.addTab("Administracion", new PanelAdministracion());
-		pestanas.addTab("Ver Coleccion", new PanelColeccion());
+		//pestanas.addTab("Ver Coleccion", new PanelColeccion());
 		
 		add(pestanas);
 	}
