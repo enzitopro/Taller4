@@ -2,6 +2,7 @@ package sistema;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +10,9 @@ import java.util.List;
 
 import dominio.*;
 import logica.CartaFactory;
+import logica.EstrategiaOrdenamiento;
 
-public class SistemaImpl {
+public class SistemaImpl implements Sistema {
 	private static SistemaImpl instancia;
     private List<Carta> coleccion;
     private final String RUTA_ARCHIVO = "Sobres.txt";
@@ -39,7 +41,58 @@ public class SistemaImpl {
     		System.out.println("No se encontró el archivo de datos");
     	}
     }
-    private void modificarDatos() {
+
+	@Override
+	public void agregarCarta(Carta carta) {
+		coleccion.add(carta);
+		guardarDatos();
+		
+	}
+
+	@Override
+	public boolean eliminarCarta(String nombreCarta) {
+		for (Carta c : coleccion) {
+			if (c.getNombreCarta().equalsIgnoreCase(nombreCarta)) {
+				coleccion.remove(c);
+				guardarDatos();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean modificarCarta(String nombreCarta, int nuevoValor1, int nuevoValor2, String nuevoString) {
+		for (Carta c : coleccion) {
+			if (c instanceof Pokemon) {
+				((Pokemon) c).setDano(nuevoValor1);
+				((Pokemon) c).setCantEnergias(nuevoValor2);
+			} else if (c instanceof Item) {
+				((Item) c).setBonificacion(nuevoValor1);
+			} else if (c instanceof Supporter) {
+				((Supporter) c).setEfectosPorTurno(nuevoValor1);
+			} else if (c instanceof Energy) {
+				((Energy) c).setElemento(nuevoString);
+			}
+			guardarDatos();
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public List<Carta> obtenerColeccion() {
+		return coleccion;
+	}
+
+	@Override
+	public void ordenarColeccion(EstrategiaOrdenamiento estrategia) {
+		estrategia.ordenar(coleccion);
+		
+	}
+
+	@Override
+	public void guardarDatos() {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA_ARCHIVO))) {
 			for (Carta c : coleccion) {
 				StringBuilder linea = new StringBuilder();
