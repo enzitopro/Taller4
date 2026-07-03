@@ -88,7 +88,7 @@ public class PanelAdministracion extends JPanel {
 				String atr1 = txtAtr1.getText();
 				String atr2 = txtAtr2.isVisible() ? ";" + txtAtr2.getText() : "";
 				
-				String lineaFalsa = nombre + ";"+rareza+";"+tipo+";"+atr1+";"+atr2;
+				String lineaFalsa = nombre + ";" + rareza + ";" + tipo + ";" + atr1 + atr2;
 				Carta nueva = CartaFactory.crearCarta(lineaFalsa);
 				System.out.println("Enviando " + lineaFalsa);
 				

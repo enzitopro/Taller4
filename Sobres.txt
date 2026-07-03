@@ -30,3 +30,4 @@ Lightning Energy;1;Energy;Lightning
 Double Turbo Energy;3;Energy;Colorless
 Pocion Enzito;1;Item;20
 energia gappy;10;Energy;Fire
+GAPPY;10;Pokemon;99999;99999
