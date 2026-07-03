@@ -20,7 +20,7 @@ public class PanelColeccion extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		inicializarComponentes();
 	}
-	
+	// establece objetos de la interfaz grafica, añade los botones, crea las ventanas dentro de la interfaz
 	private void inicializarComponentes() {
 		JPanel panelSort = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		comboSort = new JComboBox<>(new String[]{"Por Rareza", "Por Nombre", "Por Poder"});
@@ -54,7 +54,7 @@ public class PanelColeccion extends JPanel {
 		configurarEventos(btnOrdenar, btnActualizar);
 		actualizarListaUI();
 	}
-
+	// configura los eventos que ocurren al presionar los botones, como lo que realiza el boton actualizar y ordenar, asi como se muestran las cartas en la interfaz
 	private void configurarEventos(JButton btnOrdenar, JButton btnActualizar) {
 		btnActualizar.addActionListener(e -> actualizarListaUI());
 		
@@ -98,7 +98,7 @@ public class PanelColeccion extends JPanel {
 			}
 		});
 	}
-	
+	// actualiza la lista en base al orden establecido en la interfaz
 	private void actualizarListaUI() {
 		modeloLista.clear();
 		for (Carta c : SistemaImpl.getInstancia().obtenerColeccion()) {
@@ -106,7 +106,7 @@ public class PanelColeccion extends JPanel {
 		}
 	}
 	
-	// Ahora recibimos el objeto Carta entero
+		// recibe un objeto tipo Carta y busca una imagen que tenga el mismo nombre de esta carta y sea formato png
 		private void cargarImagen(Carta carta) {
 			String nombre = carta.getNombreCarta();
 			String tipo = carta.getTipo();

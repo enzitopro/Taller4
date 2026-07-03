@@ -1,7 +1,7 @@
 package logica;
 
 import dominio.*;
-
+// calcula el poder de cada carta en base a sus atributos especificos
 public class CalculadorPoder implements VisitorPoder {
     @Override
     public double visit(Pokemon p) {

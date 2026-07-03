@@ -1,7 +1,7 @@
 package dominio;
 
 import logica.VisitorPoder;
-
+// clase padre de las cartas
 public abstract class Carta {
 	protected String nombreCarta;
 	protected int rareza;

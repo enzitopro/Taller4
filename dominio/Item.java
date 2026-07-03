@@ -1,7 +1,7 @@
 package dominio;
 
 import logica.VisitorPoder;
-
+// clase de cartas de item
 public class Item extends Carta {
 	private int bonificacion;
 

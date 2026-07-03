@@ -18,7 +18,7 @@ public class PanelAdministracion extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		incializarComponentes();
 	}
-
+	// crea los componentes de la interfaz grafica, como sus paneles, botones y los añade a la interfaz
 	private void incializarComponentes() {
 		JPanel panelFormulario = new JPanel(new GridLayout(6,2,10,10));
 		
@@ -60,7 +60,7 @@ public class PanelAdministracion extends JPanel {
 		
 		configurarEventos(btnAgregar, btnModificar, btnEliminar);
 		}
-
+	// cambia el formato del formulario en base al tipo de carta seleccionada
 	private void actualizarFormulario() {
 		String tipo = (String) comboTipo.getSelectedItem();
 		txtAtr1.setText(""); txtAtr2.setText("");
@@ -78,7 +78,7 @@ public class PanelAdministracion extends JPanel {
 			lblAtr1.setText("Elemento:");
 		}
 	}
-	
+	// configura las acciones de los botones (añadir carta, modificar carta y eliminar carta)
 	private void configurarEventos(JButton btnAg, JButton btnMod, JButton btnEl) {
 		btnAg.addActionListener(e -> {
 			try {

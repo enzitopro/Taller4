@@ -1,7 +1,7 @@
 package logica;
 
 import dominio.*;
-
+// recibe una linea de la lectura de archivos, y por cada linea crea un objeto correspondiente a su tipo y lo retorna
 public class CartaFactory {
     public static Carta crearCarta(String linea) {
         String[] datos = linea.split(";");

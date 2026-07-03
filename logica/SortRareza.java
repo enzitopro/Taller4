@@ -3,7 +3,7 @@ package logica;
 import java.util.List;
 
 import dominio.Carta;
-
+// ordena las cartas en base a su rareza (mayor a menor)
 public class SortRareza implements EstrategiaOrdenamiento {
 	@Override
 	public void ordenar(List<Carta> cartas) {

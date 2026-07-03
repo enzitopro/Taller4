@@ -1,7 +1,7 @@
 package dominio;
 
 import logica.VisitorPoder;
-
+// clase de cartas pokemon
 public class Pokemon extends Carta {
 	private int dano;
 	private int cantEnergias;

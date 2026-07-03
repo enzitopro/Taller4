@@ -3,7 +3,7 @@ package logica;
 import java.util.List;
 
 import dominio.Carta;
-
+// ordena las cartas de mayor a menor en base a su poder total
 public class SortPoder implements EstrategiaOrdenamiento {
 
 	@Override

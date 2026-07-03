@@ -1,7 +1,7 @@
 package dominio;
 
 import logica.VisitorPoder;
-
+// clase de cartas de energia
 public class Energy extends Carta {
 	private String elemento;
 

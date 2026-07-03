@@ -3,7 +3,7 @@ package logica;
 import java.util.List;
 
 import dominio.*;
-
+// ordena las cartas en orden A-Z
 public class SortNombre implements EstrategiaOrdenamiento {
 	@Override
 	public void ordenar(List<Carta> cartas) {
