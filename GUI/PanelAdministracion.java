@@ -90,6 +90,7 @@ public class PanelAdministracion extends JPanel {
 				
 				String lineaFalsa = nombre + ";"+rareza+";"+tipo+";"+atr1+";"+atr2;
 				Carta nueva = CartaFactory.crearCarta(lineaFalsa);
+				System.out.println("Enviando " + lineaFalsa);
 				
 				if (nueva != null) {
 					SistemaImpl.getInstancia().agregarCarta(nueva);

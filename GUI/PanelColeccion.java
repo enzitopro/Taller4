@@ -37,9 +37,9 @@ public class PanelColeccion extends JPanel {
 		JScrollPane scrollLista = new JScrollPane(listaCartas);
 		
 		JPanel panelVista = new JPanel(new BorderLayout(5,5));
-		panelVista.setPreferredSize(new Dimension(300,0));
+		panelVista.setPreferredSize(new Dimension(380,0));
 		lblImagen = new JLabel("Seleccione una carta", SwingConstants.CENTER);
-		lblImagen.setPreferredSize(new Dimension(200,280));
+		lblImagen.setPreferredSize(new Dimension(250,350));
 		lblImagen.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		
 		lblDetalles = new JLabel("<html>Detalles de la carta...</html>");
@@ -93,7 +93,7 @@ public class PanelColeccion extends JPanel {
 							+ "<b>Rareza:</b> " + cartaSeleccionada.getRareza() + "<br>"
 							+ "<b>Poder de Combate:</b> " + String.format("%.2f", poder) + "</html>";
 					lblDetalles.setText(detalles);
-					cargarImagen(cartaSeleccionada.getNombreCarta());
+					cargarImagen(cartaSeleccionada);
 				}
 			}
 		});
@@ -106,16 +106,23 @@ public class PanelColeccion extends JPanel {
 		}
 	}
 	
-	private void cargarImagen(String nombre) {
-		String ruta = "img/" + nombre + ".png";
-		File file = new File(ruta);
-		if (file.exists()) {
-			ImageIcon icon = new ImageIcon(ruta);
-			lblImagen.setIcon(new ImageIcon(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
-		} else {
-			ImageIcon iconDefecto = new ImageIcon("img/default.png");
-			lblImagen.setIcon(new ImageIcon(iconDefecto.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+	// Ahora recibimos el objeto Carta entero
+		private void cargarImagen(Carta carta) {
+			String nombre = carta.getNombreCarta();
+			String tipo = carta.getTipo();
+			
+			String ruta = "img/" + nombre + ".png";
+			File file = new File(ruta);
+			
+			if (file.exists()) {
+				ImageIcon icon = new ImageIcon(ruta);
+				lblImagen.setIcon(new ImageIcon(icon.getImage().getScaledInstance(250, 350, Image.SCALE_SMOOTH)));
+			} else {
+				String rutaDefecto = "img/default_" + tipo + ".png"; 
+				
+				ImageIcon iconDefecto = new ImageIcon(rutaDefecto);
+				lblImagen.setIcon(new ImageIcon(iconDefecto.getImage().getScaledInstance(250, 350, Image.SCALE_SMOOTH)));
+			}
+			lblImagen.setText("");
 		}
-		lblImagen.setText("");
-	}
 }
